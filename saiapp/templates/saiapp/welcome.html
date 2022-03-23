@@ -1,0 +1,10 @@
+{% extends "saiapp/base.html" %}
+{% block content %}
+{% load static %}
+<form>
+    {% csrf_token %}
+    <h2>Welcome to Sai Global MahaParayan Teacher Site</h2><br>
+    <img src="{% static 'saiapp/Baba.jpg' %}" align="center"/>
+</form>
+<h2>Hi!!, this is about Saibaba and Posiline solutions</h2>
+{% endblock content %}

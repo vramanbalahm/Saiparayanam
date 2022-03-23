@@ -1,0 +1,14 @@
+{% extends "saiapp/base.html" %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ reg_form.as_p }}
+
+    <input type="submit" value="Submit">
+
+</form>
+
+
+
+{% endblock %}

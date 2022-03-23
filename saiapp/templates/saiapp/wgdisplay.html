@@ -1,0 +1,23 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+    <h1>Planned Weekly Chapters </h1>
+    <hr/>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>rollnumber</th>
+            <th>CurrentChapters</th>
+            <th>House</th>
+        </tr>
+        {% for getdata in Weekchapters%}
+        <tr>
+            <td>{{getdata.id}}</td>
+            <td>{{getdata.rollnumber}}</td>
+            <td>{{getdata.CurrentChapters}}</td>
+            <td>{{getdata.House}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+  
+{% endblock content %}

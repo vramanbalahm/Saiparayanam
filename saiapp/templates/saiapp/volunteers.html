@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<form action="volunteeradd/">
+{% csrf_token %}
+    <h2>List of Volunteers</h2><br>
+    <table border="0" width="60%">
+        <tr><td class="col-md-6"><h4>Name</h4></td><td class="col-md-7"><h4>Location</h4></td></tr>
+
+    {% for volunteers in volunteerinfo %}
+        <tr><td class="col-md-6"><a class="mr-2" href="{{volunteers.id}}">{{volunteers.volName}}</a></td><td class="col-md-7"> {{volunteers.location}}</td></tr>
+    {% endfor %}
+    </table>
+    <br><br>
+    <!--<a class="mr-2" href="volunteeradd/">Add Volunteer</a>-->
+    <input type="submit" value="Add Volunteer">
+</form>
+{% endblock content %}

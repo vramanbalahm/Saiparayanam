@@ -1,0 +1,16 @@
+{% extends 'admin/base_site.html' %}
+{% block content %}
+{% include 'saiapp/includes/messages.html' %}
+
+<form method="POST">
+{% csrf_token %}
+
+    <h2>Assign Volunteer to a Parayan Group</h2><br>
+
+    {{ voldevform.as_p }}
+    <br>
+    <input type="submit" value="Submit" name="submit">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Cancel" name="cancel">
+
+</form>
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<form action='generatewhatsapp' method="POST">
+    {% csrf_token %}
+
+
+    {% if current_details.currentchapters != null %}
+        Current chapters for roll number 1 - {{ current_details.currentchapters }} <br>
+        Date of last chapter generation - {{ current_details.gendate | date }}<br><br>
+    {% endif %}
+
+    Input Text:
+    <Input type="text" name="param2" required><br><br>
+    
+    {{value1}}<br><br>
+    <input type="submit" value="Call Whatsapp">
+
+</form>
+<h2>This will invoke Whatsapp in web-browser</h2>
+{% endblock content %}

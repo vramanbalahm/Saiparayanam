@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'saiapp/main.css' %}">
+
+    {% if title %}
+        <title>Django app - {{ title }}</title>
+    {% else %}
+        <title>Django app</title>
+    {% endif %}
+
+    
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" >
+            <div>
+                <img src="{% static 'saiapp/logo_mahaparayan.png' %}" class="article-svg"/>
+                <a class="navbar-brand mr-4" href="/saiapp/">Sairam Parayan</a>
+
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    {% if user.is_authenticated %}
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="/saiapp/home">Home</a>
+                        <a class="nav-item nav-link" href="/saiapp/about">About</a>
+                        <!--<a class="nav-item nav-link" href="/saiapp/wg">Weekly Generation</a>
+                        <a class="nav-item nav-link" href="/saiapp/wg-exception">Weekly Generation Exception</a>
+                        <a class="nav-item nav-link" href="/saiapp/form">Status Check</a>
+                        <a class="nav-item nav-link" href="/saiapp/generatewhatsapp">Generate Whatsapp message</a>
+                        <a class="nav-item nav-link" href="/saiapp/volunteerlist/">Volunteers</a>-->
+                        <a class="nav-item nav-link" href="/saiapp/logout">Logout</a>
+                    </div>
+                    {% else %}
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="/saiapp/home/">Home</a>
+                        <a class="nav-item nav-link" href="/saiapp/about">About</a>
+
+                    </div>
+                    <!-- Navbar Right Side -->
+                    <div class="navbar-nav">
+                        <!-- <a class="nav-item nav-link" href="/saiapp/login/">Parayan Mgmt Login</a>&nbsp;&nbsp;&nbsp;-->
+                        <a class="nav-item nav-link" href="/saiapp/register/">Register</a>&nbsp;&nbsp;&nbsp;
+                        <a class="nav-item nav-link" href="/admin/">Login</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+<br><br>
+    <main role="main" class="container" >
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}{% endblock %}
+            </div>
+            {% if user.is_authenticated %}
+            <!--
+            <div class="col-md-4">
+                <div class="content-section">
+                    <h3>Our Sidebar</h3>
+                    <p class='text-muted'>You can put any information here you'd like.
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-light">Latest Posts</li>
+                        <li class="list-group-item list-group-item-light">Announcements</li>
+                        <li class="list-group-item list-group-item-light">Calendars</li>
+                        <li class="list-group-item list-group-item-light">etc</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>-->
+            {% endif %}
+        </div>
+    </main>
+
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

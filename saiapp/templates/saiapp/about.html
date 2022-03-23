@@ -1,0 +1,13 @@
+{% extends "saiapp/base.html" %}
+{% block content %}
+<form action='external' method="POST">
+    {% csrf_token %}
+    Input Text:
+    <Input type="text" name="param" required><br><br>
+    {{data_external}}<br><br>
+    {{data1}}<br><br>
+    <input type="submit" value="Execute external python script">
+
+</form>
+<h2>Hi!!, this is about Saibaba and Posiline solutions</h2>
+{% endblock content %}

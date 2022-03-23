@@ -1,0 +1,26 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h2>Hi!!, Please enter the 1 St Chapter</h2>
+<form action='callweekgenexception' method="POST">
+    {% csrf_token %}
+    Input Text:
+    <Input type="text" name="param1" required><br><br>
+    {{data_external}}<br><br>
+    <p>{{Rollnumber}}</p>
+    <p>{{Currentchapters}}</p>
+    <p>{{House}}</p>
+
+    {% comment %}
+    {{% mydata = data1|striptags %}}  
+    
+    <ul>
+    {% for my_chapters in mydata %}
+        <li> {{my_chapters}}</li>
+    {% endfor %}
+    </ul>
+    {% endcomment %}
+    <input type="submit" value="Gen exception week chapters">
+
+</form>
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+
+    <h2>Volunteer Details</h2><br>
+
+    {{volform.as_p}}
+    <br>
+
+    {% if volunteerinfo %}
+        <input type="submit" value="Submit" name="submit">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Enrol in a Group" name="enrol">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="Cancel" name="cancel" onclick="window.location.href='/saiapp/volunteerlist/'">
+    {% else %}
+        <input type="submit" value="Submit" name="submit">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="Cancel" name="cancel" onclick="window.location.href='/saiapp/volunteerlist/'">
+    {% endif %}
+</form>
+
+{% endblock content %}

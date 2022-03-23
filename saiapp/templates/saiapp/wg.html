@@ -1,0 +1,35 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+
+<form action='callweekgen' method="POST">
+    {% csrf_token %}
+
+
+    {% if user.groups.all.0.name.upper == "ADMIN"  %}
+    <h2>Please enter the 1 St Chapter</h2>
+        Enter the chapter for roll no.1: &nbsp;
+        <Input type="text" name="param1" required><br><br>
+    {% endif %}
+
+    {{data_external}}<br><br>
+    <p>{{Rollnumber}}</p>
+    <p>{{Currentchapters}}</p>
+    <p>{{House}}</p>
+
+    {% comment %}
+    {{% mydata = data1|striptags %}}  
+    
+    <ul>
+    {% for my_chapters in mydata %}
+        <li> {{my_chapters}}</li>
+    {% endfor %}
+    </ul>
+    {% endcomment %}
+
+
+    <input type="submit" value="Generate Week Chapters">
+
+
+</form>
+
+{% endblock content %}
