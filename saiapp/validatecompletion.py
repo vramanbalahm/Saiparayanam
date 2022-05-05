@@ -2,22 +2,20 @@ import pandas as pd
 import numpy as np
 import csv
 # import xlrd
-# import mysql.connector
+import mysql.connector
 import random
 import re
 import os
+from django.conf import settings
 
 #connecting database and fetching the expected chapters. 
 # This program is to check the completion status of the parayan reading.
-''' commented by me
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="root",
-    port='3306',
-    database="saiparayanam"
+ host="127.0.0.1",
+ user="root",
+ password="root",
+ database="saiparayanam"
 )
-'''
 
 #mydb = mysql.connector.connect(
 #  host="posidbinstance.cvziar2hgxah.us-east-1.rds.amazonaws.com",
@@ -35,12 +33,14 @@ mydb.close()
 
 dbdf = options
 
-dirloc = 'C:/Documents/VIJEY/django-projects/saiparayan/saiapp/uploadedfiles'
+dirloc = 'C:/Users/RANJANI PRASAD/source/repos/saiparayan/saiapp/uploadedfiles'
+#dirloc = settings.UPLOADED_FILES_PATH
+
 entries = os.listdir(dirloc)
 
-#print(entries)
+
 for files in entries:
-  print("working on  "+ files)
+  #print("working on  "+ files)
   def remove(string):
       return string.replace(" ", "")
 
@@ -90,10 +90,12 @@ for files in entries:
   newdf.loc[pd.notnull(newdf['readchapters']) & (newdf["completed"] == 'Not Completed'), 'completed'] = 'check-format issue'
   #newdf.loc[isnull(newdf['readchapters'])] 'Not Completed']
 
-  #print(newdf)
-  completedloc = 'C:/Documents/VIJEY/django-projects/saiparayan/saiapp/completedfiles/'
+
+  completedloc = 'C:/Users/RANJANI PRASAD/source/repos/saiparayan/saiapp/completedfiles/'
   filename = str(random.randint(0, 200))
   filename = completedloc+files+filename+".xlsx"
+
   newdf.to_excel(filename)
-  print("Completed this file " +filename)
+  print(filename)
+
   #newdf.to_csv("mynewdf.csv", index=False)

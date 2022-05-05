@@ -17,7 +17,7 @@ from datetime import date
 
 # Establish a Mysql connection
 mydb = mysql.connector.connect(
-    host="localhost",
+    host="127.0.0.1",
     user="root",
     password="root",
     port='3306',
