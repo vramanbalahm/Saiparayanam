@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
+    #'crispy_forms',
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'uploadedfiles')
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+#CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 WSGI_APPLICATION = 'saiparayan.wsgi.application'
 
@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'saiparayanam',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
     }
@@ -147,3 +147,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGOUT_REDIRECT_URL = '/saiapp/'
+
+
+UPLOADED_FILES_PATH = 'C://Users//RANJANI PRASAD//source//repos//saiparayan//saiapp//uploadedfiles'
+VALIDATE_COMPLETION_PATH = 'C://Users//RANJANI PRASAD//source//repos//saiparayan//saiapp//validatecompletion.py'
+COMPLETED_FILES_PATH = 'C:/Users/RANJANI PRASAD/source/repos/saiparayan/saiapp/completedfiles/'
+WEEKLY_CHAP_GEN = 'C://Users//RANJANI PRASAD//source//repos//saiparayan//saiapp//weeklychapgen.py'
+WEEKLY_CHAP_GEN_EXCEPTION = 'C://Documents//VIJEY//django-projects//saiparayan//saiapp//weeklychapgen-exception.py'
+WATSAPP_GEN = 'C://Users//RANJANI PRASAD//source//repos//saiparayan/saiapp//whatsapptextgeneration.py'
